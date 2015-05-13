@@ -39,8 +39,10 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 end
 group :production do
-  # Postgress for Heroku
+  # Postgress for Heroku database
   gem 'pg'
+  # Rails_12Factor for Heroku Cross-Platform
+  gem 'rails_12factor'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
