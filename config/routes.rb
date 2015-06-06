@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
+  get 'video/index'
+
+  get 'potw/index'
+
+  get 'blog/index'
+
+  get 'games/index'
+
   get 'welcome/index'
+
+  get 'games/new'
+
+  post 'games#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
