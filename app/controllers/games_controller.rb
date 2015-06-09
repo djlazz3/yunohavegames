@@ -13,8 +13,12 @@ class GamesController < ApplicationController
       render 'new'
     end
   end
+  def destroy
+    @game = Game.find(params[:id])
+    @game.destroy
+  end
   private
   def game_params
-    params.require(:image).permit(:game)
+    params.require(:game).permit(:image, :game)
   end
 end
