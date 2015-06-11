@@ -13,9 +13,9 @@ class GamesController < ApplicationController
       render 'new'
     end
   end
-  def destroy
+  def show
     @game = Game.find(params[:id])
-    @game.destroy
+    redirect_to @game.url
   end
   private
   def game_params
