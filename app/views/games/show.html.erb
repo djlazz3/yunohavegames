@@ -1,0 +1,36 @@
+<%= link_to("<-- Back to games", {:action => 'index'}, :class => 'back-link') %>
+<h1>Game Attributes</h1>
+<table class="summary of game">
+  <tr>
+    <td>
+      <h3>Id:</h3>
+    </td>
+    <td>
+      <p><%= @game.id %></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h3>Name:</h3>
+    </td>
+    <td>
+      <p><%= @game.title %></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h3>Image Url:</h3>
+    </td>
+    <td>
+      <p><%= @game.image %></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h3>Swf File:</h3>
+    </td>
+    <td>
+      <p><%= @game.game %></p>
+    </td>
+  </tr>
+</table>

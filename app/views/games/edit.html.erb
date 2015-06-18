@@ -1,11 +1,11 @@
-<h2>New Game</h2>
+<h2>Edit Game</h2>
 <%= link_to("<-- Back to games", {:action => 'index'}, :class => 'back-link') %>
-<%= form_for(@game, :url => {:action => 'create'}) do |g| %>
+<%= form_for(@game, :url => {:action => 'update', :id => @game.id}) do |g| %>
     <%= g.label :title %>
     <%= g.text_field :title %>
     <%= g.label :image %>
     <%= g.text_field :image %>
     <%= g.label :game %>
     <%= g.text_field :game %>
-    <%= g.submit "Create Game" %>
+    <%= g.submit "Update Game" %>
 <% end %>
