@@ -1,5 +1,7 @@
 <h1>Games</h1>
+<% if current_user.try(:admin?)%>
 <%= link_to("Add Game", {:action => 'new'}, :class => "action new")%>
+<% end %>
 <table>
 <% @games.each do |g| %>
 <tr>

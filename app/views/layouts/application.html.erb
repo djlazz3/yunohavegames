@@ -3,7 +3,7 @@
 <head>
   <title>Yunohavegames</title>
   <%= stylesheet_link_tag    'application' %>
-
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -21,8 +21,15 @@
 <a href="/blog/index">Blog</a>
 <a href="/potw/index">Photo of the Week</a>
 <a href="/video/index">Videos</a>
+<% if current_user %>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+<% else %>
+    <%= link_to "Log in", new_user_session_path %>
+    <%= link_to "Sign up", new_user_registration_path %>
+<% end %>
 <br>
-<%= yield %>
+
+    <%= yield %>
 
 </body>
 </html>
