@@ -24,7 +24,7 @@ class GamesController < ApplicationController
   def update
     @game = Game.find(params[:id])
     if @game.update_attributes(game_params)
-      current_user.update_attribute :admin, false
+
       redirect_to(:action => 'show', :id => @game.id)
     else
       render('edit')
