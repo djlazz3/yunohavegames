@@ -13,7 +13,7 @@ class AdminsController < ApplicationController
     if @admin.save
       user = User.find_for_authentication(:email => "#{@admin.email}")
       user.update_attribute :admin, true
-      redirect_to '/games/index'
+      redirect_to '/admins/index'
     else
       render('new')
     end
@@ -31,6 +31,8 @@ class AdminsController < ApplicationController
   end
   def delete
     @admin = Admin.find(params[:id])
+    user = User.find_for_authentication(:email => "#{@admin.email}")
+    user.update_attribute :admin, false
     @admin.destroy
     if @admin.destroy
       redirect_to(:action => 'index')

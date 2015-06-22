@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   get 'admins/index'
 
   get 'games/delete'
+
+  get 'admins/delete'
+
   resource :games
   resource :admins
   # The priority is based upon order of creation: first created -> highest priority.

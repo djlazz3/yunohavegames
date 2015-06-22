@@ -1,8 +1,20 @@
 <% if current_user.try(:admin?)%>
-<% @admins.each do |a| %>
-        <h2><%= a.email %><h2>
-          <br>
+<table>
+    <% @admins.each do |a| %>
+      <tr>
+        <td>
+        <h2><%= a.email %></h2>
+        </td>
+        <td>
+          <%= link_to("Show Info", {:action => 'show', :id => a.id}, :class => "action show")%>
+
+          <%= link_to("Edit", {:action => 'edit', :id => a.id}, :class => "action edit")%>
+
+          <%= link_to("Delete", {:action => 'delete', :id => a.id}, :class => "action delete")%>
+        </td>
+      </tr>
     <% end %>
+</table>
 <% else %>
     <h1>You do not have access to this page.</h1>
     <p>You may need to <a href="/users/sign_in">log in</a></p>
