@@ -1,0 +1,10 @@
+<% if current_user.try(:admin?)%>
+    <%= form_for(@admin, :url => {:action => 'update', :id => @admin.id}) do |a| %>
+        <%= a.label :email %>
+        <%= a.text_field :email %>
+        <%= a.submit "Update Admin" %>
+    <% end %>
+<% else %>
+    <h1>You do not have access to this page.</h1>
+    <p>You may need to <a href="/users/sign_in">log in</a></p>
+<% end %>

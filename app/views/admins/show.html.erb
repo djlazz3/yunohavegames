@@ -1,0 +1,6 @@
+<% if current_user.try(:admin?)%>
+<h3><%= @admin.email %></h3>
+<% else %>
+    <h1>You do not have access to this page.</h1>
+    <p>You may need to <a href="/users/sign_in">log in</a></p>
+<% end %>
