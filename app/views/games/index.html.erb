@@ -3,6 +3,7 @@
 <% if current_user.try(:admin?)%>
 <%= link_to("Add Game", {:action => 'new'}, :class => "action new")%>
 <% end %>
+
 <table>
 <% @games.each do |g| %>
 <tr>
@@ -23,7 +24,5 @@
 <% end %>
 </table>
 
-<%= @games.each do |g| %>
-<a href="<%= g.game %>"><img src="<%= g.image %>" height="200px" width="200px"></a>
-<% end %>
+
 
