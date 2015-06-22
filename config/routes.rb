@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
+  get 'admins/index'
+
   get 'games/delete'
   resource :games
   resource :admins
