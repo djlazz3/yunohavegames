@@ -14,11 +14,14 @@
     <a href="<%= g.game %>"><img src="<%= g.image %>" height="200px" width="200px"></a>
   </td>
   <td class="actions">
+    <% if current_user.try(:admin?)%>
     <%= link_to("Show Info", {:action => 'show', :id => g.id}, :class => "action show")%>
 
     <%= link_to("Edit", {:action => 'edit', :id => g.id}, :class => "action edit")%>
 
     <%= link_to("Delete", {:action => 'delete', :id => g.id}, :class => "action delete")%>
+
+    <% end %>
   </td>
 </tr>
 <% end %>
