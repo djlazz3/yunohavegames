@@ -1,9 +1,8 @@
 <% if current_user.try(:admin?)%>
-    <%= form_for(@admin, :url => {:action => 'update', :id => @admin.id}) do |a| %>
-        <%= a.label :email %>
-        <%= a.text_field :email %>
-        <%= a.submit "Update Admin" %>
-    <% end %>
+<%= form_for(@video, :url => {:action => 'update', :id => @video.id}) do |v| %>
+    <%= v.label :url %>
+    <%= v.text_field :url %>
+<% end %>
 <% else %>
     <h1>You do not have access to this page.</h1>
     <p>You may need to <a href="/users/sign_in">log in</a> or <a href="/users/sign_up">sign up</a>.</p>

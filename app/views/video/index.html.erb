@@ -1,1 +1,7 @@
 <h1>Video</h1>
+<% if current_user.try(:admin?)%>
+    <%= link_to("Update Video", edit_video_path ) %>
+<% end %>
+<% @video.each do |v| %>
+    <embed src="<%= v.url %>">
+<% end %>

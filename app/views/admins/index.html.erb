@@ -1,21 +1,29 @@
 <% if current_user.try(:admin?)%>
 <table>
+      <tr>
+        <% if current_user.try(:email) == "bpadron2000@gmail.com" %>
+            <%= link_to("New Admin", new_admins_path ) %>
+        <% end %>
+      </tr>
     <% @admins.each do |a| %>
       <tr>
         <td>
         <h2><%= a.email %></h2>
         </td>
         <td>
-          <%= link_to("Show Info", {:action => 'show', :id => a.id}, :class => "action show")%>
+          <% if current_user.email == a.email || current_user.email == "bpadron2000@gmail.com"%>
+            <%= link_to("Show Info", {:action => 'show', :id => a.id}, :class => "action show")%>
 
-          <%= link_to("Edit", {:action => 'edit', :id => a.id}, :class => "action edit")%>
+            <%= link_to("Edit", {:action => 'edit', :id => a.id}, :class => "action edit")%>
 
-          <%= link_to("Delete", {:action => 'delete', :id => a.id}, :class => "action delete")%>
+            <%= link_to("Delete", {:action => 'delete', :id => a.id}, :class => "action delete")%>
+          <% end %>
         </td>
       </tr>
     <% end %>
 </table>
 <% else %>
     <h1>You do not have access to this page.</h1>
-    <p>You may need to <a href="/users/sign_in">log in</a></p>
+    <p>You may need to <a href="/users/sign_in">log in</a> or <a href="/users/sign_up">sign up</a>.</p>
+
 <% end %>
