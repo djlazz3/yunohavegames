@@ -1,38 +1,42 @@
 Given(/^that a user is logged in$/) do
-user_logged_in = 1
+  user = FactoryGirl.create(:user)
+  visit new_user_session_path
+  fill_in "Email", with: user.email
+  fill_in "Password", with: user.password
+  click_button "Log in"
+  save_and_open_page
 end
 
 Given(/^I am in the index page$/) do
-page = root/blog/index
+  pending
 end
 
 When(/^I click on the "(.*?)" button$/) do |arg1|
-arg1.change_page
+  pending
 end
 
 When(/^I fill in "(.*?)" with "(.*?)"$/) do |arg1, arg2|
-form = Form.new(arg1, arg2)
+  pending
 end
 
 When(/^I click on the button "(.*?)"$/) do |arg1|
-arg1.submit
+  pending
 end
 
 Then(/^I should see "(.*?)" and "(.*?)"$/) do |arg1, arg2|
-arg1.show
-arg2.show
+  pending
 end
 
 Given(/^"(.*?)" blogs exist$/) do |arg1|
-blogs != 0 
+  pending
 end
 
 When(/^I visit the blogs page$/) do
-page = root/blog/index
+  pending
 end
 
 Then(/^I should see a list of the blogs$/) do
-list(blogs)
+  pending
 end
 
 
