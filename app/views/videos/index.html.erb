@@ -1,0 +1,8 @@
+<h1>Video</h1>
+
+<% @videos.each do |v| %>
+    <embed src="<%= v.url %>" height="200px" width="200px"></embed>
+    <% if current_user.try(:admin?)%>
+        <%= link_to("Update Video", {:action => 'edit', :id => v.id}, :class => "action edit")%>
+    <% end %>
+<% end %>

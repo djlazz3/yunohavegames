@@ -19,8 +19,8 @@
 <a href="/">Home</a>
 <a href="/games/index">Games</a>
 <a href="/blog/index">Blog</a>
-<a href="/potw/index">Photo of the Week</a>
-<a href="/video/index">Videos</a>
+<a href="/potws/index">Photo of the Week</a>
+<a href="/videos/index">Videos</a>
 <% if current_user.try(:admin?) %>
     <%= link_to "Admin Pages", admins_index_path %>
     <%= link_to "Log out", destroy_user_session_path, method: :delete %>

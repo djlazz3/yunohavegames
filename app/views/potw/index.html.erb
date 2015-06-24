@@ -1,7 +1,0 @@
-<h1>Picture of the Week</h1>
-<% if current_user.try(:admin?)%>
-    <%= link_to("Update Picture of the Week", edit_potw_path ) %>
-<% end %>
-<% @potw.each do |p| %>
-    <img src="<%= p.purl %>">
-<% end %>
