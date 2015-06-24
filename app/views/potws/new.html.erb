@@ -1,0 +1,11 @@
+<% if current_user.try(:admin?) && current_user.try(:email) == "bpadron2000@gmail.com"%>
+<%= form_for(@potw, :url => {:action => 'create'}) do |p| %>
+    <%= p.label :purl %>
+    <%= p.text_field :purl %>
+    <%= p.submit "New POTW" %>
+<% end %>
+<% else %>
+    <h1>You do not have access to this page.</h1>
+    <p>You may need to <a href="/users/sign_in">log in</a> or <a href="/users/sign_up">sign up</a>.</p>
+
+<% end %>

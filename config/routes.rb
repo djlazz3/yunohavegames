@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   get 'admin/index'
 
   devise_for :users
-  get 'video/index'
+  get 'videos/index'
 
-  get 'potw/index'
+  get 'potws/index'
 
   get 'blog/index'
 
@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   get 'admins/delete'
 
   resource :games, :admins
-  resource :potw, :video, only:[:new, :create, :edit, :update]
+  resource :potws ,only:[:new, :create, :edit, :update]
+  resource :videos, only:[:new, :create, :edit, :update]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
