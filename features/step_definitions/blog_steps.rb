@@ -8,7 +8,7 @@ Given(/^that a user is logged in$/) do
 end
 
 Given(/^I am in the index page$/) do
-  pending
+  visit root_path
 end
 
 When(/^I click on the "(.*?)" button$/) do |arg1|
