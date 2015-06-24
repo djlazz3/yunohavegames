@@ -24,9 +24,7 @@ ActiveRecord::Schema.define(version: 20150622182752) do
   end
 
   create_table "potws", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "purl"
+    t.string "purl"
   end
 
   create_table "users", force: :cascade do |t|

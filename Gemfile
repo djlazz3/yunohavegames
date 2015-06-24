@@ -39,6 +39,14 @@ group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 end
+
+group :test do
+  gem 'cucumber-rails'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
+end
+
 group :production do
   # Postgress for Heroku database
   gem 'pg'
