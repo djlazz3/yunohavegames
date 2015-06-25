@@ -18,7 +18,7 @@
 <body>
 <a href="/">Home</a>
 <a href="/games/index">Games</a>
-<a href="/blog/index">Blog</a>
+<%= link_to "Blog", new_blog_path %>
 <a href="/potws/index">Photo of the Week</a>
 <a href="/videos/index">Videos</a>
 <% if current_user.try(:admin?) %>

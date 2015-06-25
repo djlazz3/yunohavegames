@@ -4,9 +4,9 @@ Feature: The bloging Engine
   Scenario: Adding a new blog
     Given that a user is logged in
     And I am in the index page
-    When I click on the "Create Blog" button 
-    And I fill in "name" with "Test Name"
-    And I fill in "subject" with "Test Subject"
+    When I click on the "Blog" link
+    And I fill in "blog_name" with "Test name"
+    And I fill in "blog_subject" with "Test Subject"
     And I click on the button "Create Blog"
     Then I should see "Test name" and "Test Subject"
 

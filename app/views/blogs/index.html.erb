@@ -1,0 +1,10 @@
+<h1>Blogs</h1>
+<% @blogs.each do |b| %>
+  <div class="panel panel-default">
+    <div class="panel-heading"><%= b.name %></div>
+    <div class="panel-body">
+      <%= b.subject %>
+    </div>
+  </div>
+<% end %>
+

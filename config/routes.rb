@@ -6,8 +6,6 @@ Rails.application.routes.draw do
 
   get 'potws/index'
 
-  get 'blog/index'
-
   get 'games/index'
 
   get 'welcome/index'
@@ -18,6 +16,7 @@ Rails.application.routes.draw do
 
   get 'admins/delete'
 
+  resources :blogs, only:[:index, :new, :create]
   resource :games, :admins
   resource :potws ,only:[:new, :create, :edit, :update]
   resource :videos, only:[:new, :create, :edit, :update]

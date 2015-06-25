@@ -4,27 +4,27 @@ Given(/^that a user is logged in$/) do
   fill_in "Email", with: user.email
   fill_in "Password", with: user.password
   click_button "Log in"
-  save_and_open_page
 end
 
 Given(/^I am in the index page$/) do
   visit root_path
 end
 
-When(/^I click on the "(.*?)" button$/) do |arg1|
-  pending
+When(/^I click on the "(.*?)" link$/) do |arg1|
+  click_on arg1
 end
 
 When(/^I fill in "(.*?)" with "(.*?)"$/) do |arg1, arg2|
-  pending
+  fill_in arg1, with: arg2
 end
 
 When(/^I click on the button "(.*?)"$/) do |arg1|
-  pending
+  click_button arg1
 end
 
 Then(/^I should see "(.*?)" and "(.*?)"$/) do |arg1, arg2|
-  pending
+  expect(page).to have_content arg1
+  expect(page).to have_content arg2
 end
 
 Given(/^"(.*?)" blogs exist$/) do |arg1|
