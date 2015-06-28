@@ -28,15 +28,18 @@ Then(/^I should see "(.*?)" and "(.*?)"$/) do |arg1, arg2|
 end
 
 Given(/^"(.*?)" blogs exist$/) do |arg1|
-  pending
+  @blog = FactoryGirl.create_pair(:blog)
 end
 
 When(/^I visit the blogs page$/) do
-  pending
+  visit new_blog_path
 end
 
 Then(/^I should see a list of the blogs$/) do
-  pending
+  expect(page).to have_content @blog.first.subject
+  expect(page).to have_content @blog.first.name
+  expect(page).to have_content @blog.second.subject  
+  expect(page).to have_content @blog.second.name
 end
 
 

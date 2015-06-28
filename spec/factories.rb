@@ -7,4 +7,10 @@ FactoryGirl.define do
     password_confirmation "Password1"
     admin false
   end
+  factory :blog do
+    sequence :subject do |n|
+      "subject#{n}"
+    end
+    name "blog"
+  end
 end
