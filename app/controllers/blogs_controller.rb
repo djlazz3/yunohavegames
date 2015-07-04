@@ -16,6 +16,34 @@ class BlogsController < ApplicationController
     end
   end
 
+  def show
+    @blog = Blog.find(params[:id])
+  end
+
+  def edit
+    @blog = Blog.find(params[:id])
+  end
+
+  def update
+    @blog = Blog.find(params[:id])
+    if @blog.update_attributes(blog_params)
+      redirect_to(:action => 'show', :id => @blog.id)
+    else
+      render('edit')
+    end
+  end
+
+  def delete
+    @blog = Blog.find(params[:id])
+    @blog.destroy
+    if @blog.destroy
+      redirect_to(:action => 'index')
+    else
+      render('delete')
+    end
+  end
+
+
   private
 
   def blog_params

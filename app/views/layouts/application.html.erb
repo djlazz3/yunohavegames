@@ -16,16 +16,18 @@
 
 </head>
 <body>
-<a href="/">Home</a>
-<a href="/games/index">Games</a>
-<%= link_to "Blog", new_blog_path %>
-<a href="/potws/index">Photo of the Week</a>
-<a href="/videos/index">Videos</a>
+<%= link_to "Home", root_path %>
+<%= link_to "Games", games_index_path %>
+<%= link_to "Blog", blogs_index_path %>
+<%= link_to "Photo of the Week", potws_index_path %>
+<%= link_to "Videos", videos_index_path %>
 <% if current_user.try(:admin?) %>
     <%= link_to "Admin Pages", admins_index_path %>
     <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+    <p> Currently logged in as <%= current_user.try(:email) %> </p>
 <% elsif current_user %>
     <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+    <p> Currently logged in as <%= current_user.try(:email) %> </p>
 <% else %>
     <%= link_to "Log in", new_user_session_path %>
     <%= link_to "Sign up", new_user_registration_path %>

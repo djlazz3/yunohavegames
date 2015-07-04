@@ -3,12 +3,11 @@ class GamesController < ApplicationController
   def index
     @games = Game.all
   end
-  def show
-    @game = Game.find(params[:id])
-  end
+
   def new
     @game = Game.new
   end
+
   def create
     @game = Game.new(game_params)
     if @game.save
@@ -17,9 +16,15 @@ class GamesController < ApplicationController
       render('new')
     end
   end
+
+  def show
+    @game = Game.find(params[:id])
+  end
+
   def edit
     @game = Game.find(params[:id])
   end
+
   def update
     @game = Game.find(params[:id])
     if @game.update_attributes(game_params)
@@ -28,6 +33,7 @@ class GamesController < ApplicationController
       render('edit')
     end
   end
+
   def delete
     @game = Game.find(params[:id])
     @game.destroy
@@ -39,6 +45,6 @@ class GamesController < ApplicationController
   end
   private
   def game_params
-    params.require(:games).permit(:image, :game, :title)
+    params.require(:game).permit(:image, :game, :title)
   end
 end

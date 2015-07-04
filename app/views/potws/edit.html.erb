@@ -6,6 +6,11 @@
 <% end %>
 <% else %>
     <h1>You do not have access to this page.</h1>
-    <p>You may need to <a href="/users/sign_in">log in</a> or <a href="/users/sign_up">sign up</a>.</p>
-
+    <% if current_user.try(:email) %>
+        <p> Currently logged in as <%= current_user.try(:email) %> </p>
+        <%= link_to "Back to home page", root_path %>
+    <% else %>
+        <p>You may need to <a href="/users/sign_in">log in</a></p>
+        <%= link_to "Back to home page", root_path %>
+    <% end %>
 <% end %>

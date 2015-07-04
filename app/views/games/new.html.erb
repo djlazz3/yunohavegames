@@ -1,7 +1,7 @@
-<h2>New Game</h2>
-<%= link_to("<-- Back to games", {:action => 'index'}, :class => 'back-link') %>
-    <% if current_user.try(:admin?)%>
-<%= form_for(@game, :url => {:action => 'create'}) do |g| %>
+<% if current_user.try(:admin?)%>
+    <h2>New Game</h2>
+    <%= link_to("<-- Back to games", {:action => 'index'}, :class => 'back-link') %>
+    <%= form_for(@game, :url => {:action => 'create'}) do |g| %>
     <%= g.label :title %>
     <%= g.text_field :title %>
     <%= g.label :image %>
@@ -12,5 +12,11 @@
     <% end %>
     <% else %>
     <h1>You do not have access to this page.</h1>
+    <% if current_user.try(:email) %>
+    <p> Currently logged in as <%= current_user.try(:email) %> </p>
+        <%= link_to "Back to home page", root_path %>
+       <% else %>
     <p>You may need to <a href="/users/sign_in">log in</a></p>
+        <%= link_to "Back to home page", root_path %>
+<% end %>
 <% end %>

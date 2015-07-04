@@ -8,7 +8,7 @@ class VideosController < ApplicationController
   def create
     @video = Video.new(video_params)
     if @video.save
-      redirect_to 'video/index'
+      redirect_to videos_index_path
     else
       render('new')
     end

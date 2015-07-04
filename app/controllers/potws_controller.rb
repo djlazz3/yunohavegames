@@ -8,7 +8,7 @@ class PotwsController < ApplicationController
   def create
     @potw = Potw.new(potw_params)
     if @potw.save
-      redirect_to 'potw/index'
+      redirect_to potws_index_path
     else
       render('new')
     end

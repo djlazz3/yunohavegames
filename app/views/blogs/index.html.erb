@@ -1,9 +1,17 @@
 <h1>Blogs</h1>
+
+<h1><%= current_user.try(:email) %></h1>
+
 <% @blogs.each do |b| %>
   <div class="panel panel-default">
     <div class="panel-heading"><%= b.name %></div>
     <div class="panel-body">
       <%= b.subject %>
+      <%= link_to("Show Info", {:action => 'show', :id => b.id}, :class => "action show")%>
+
+      <%= link_to("Edit", {:action => 'edit', :id => b.id}, :class => "action edit")%>
+
+      <%= link_to("Delete", {:action => 'delete', :id => b.id}, :class => "action delete")%>
     </div>
   </div>
 <% end %>
