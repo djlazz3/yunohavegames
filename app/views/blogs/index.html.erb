@@ -1,6 +1,6 @@
 <h1>Blogs</h1>
 
-<h1><%= current_user.try(:email) %></h1>
+<%= if current user.try(:admin) %>
 
 <% @blogs.each do |b| %>
   <div class="panel panel-default">
@@ -10,9 +10,9 @@
       <%= link_to("Show Info", {:action => 'show', :id => b.id}, :class => "action show")%>
 
       <%= link_to("Edit", {:action => 'edit', :id => b.id}, :class => "action edit")%>
-
-      <%= link_to("Delete", {:action => 'delete', :id => b.id}, :class => "action delete")%>
     </div>
   </div>
 <% end %>
-
+<% else %>
+<h1>Sorry This is a Work in progress We'll try to have it up as soon as possible.</h1>
+<h3>While we do this you may look at all the other pages on the website's <%= link_to 'Home Page', root_path %>.</h3>
