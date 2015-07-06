@@ -22,7 +22,6 @@ test: &test
 
 production:
   <<: *default
-  adapter: production
   database: db/production.sqlite3
 
 cucumber:
