@@ -26,8 +26,8 @@ Rails.application.routes.draw do
 
   resource :videos, only:[:new, :create, :edit, :update]
 
-  resource :blogs
-    resource :comments
+  #resource :blogs
+    #resource :comments
 
 
   # The priority is based upon order of creation: first created -> highest priority.
