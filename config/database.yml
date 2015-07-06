@@ -21,14 +21,13 @@ test: &test
   database: db/test.sqlite3
 
 production:
-  adapter: postgresql
-    encoding: unicode
-    # For details on connection pooling, see rails configuration guide
-    # http://guides.rubyonrails.org/configuring.html#database-pooling
-    pool: 5
-    database: yunohavegames_production
-    username: yunohavegames
-    password: <%= ENV['YUNOHAVEGAMES_DATABASE_PASSWORD'] %>
-
+adapter: postgresql
+encoding: unicode
+# For details on connection pooling, see rails configuration guide
+# http://guides.rubyonrails.org/configuring.html#database-pooling
+pool: 5
+database: yunohavegames_production
+username: yunohavegames
+password: <%= ENV['YUNOHAVEGAMES_DATABASE_PASSWORD'] %>
 cucumber:
   <<: *test
