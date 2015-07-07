@@ -1,3 +1,3 @@
-class Comment < ActiveRecord::Base1
+class Comment < ActiveRecord::Base
   belongs_to :blogs
 end
