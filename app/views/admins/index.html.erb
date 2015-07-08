@@ -2,8 +2,15 @@
 <table>
       <tr>
         <% if current_user.try(:email) == "bpadron2000@gmail.com" %>
-            <%= link_to("New Admin", new_admins_path ) %>
+            <%= link_to("New Admin ", new_admins_path ) %>
+            <%= link_to("New Potw ", new_potws_path) %>
+            <%= link_to("New Video ", new_videos_path) %>
+            <%= link_to("New Game ", new_games_path) %>
         <% end %>
+      </tr>
+      <tr>
+        <%= link_to("Replace Picture of the week ", edit_potws_path) %>
+        <%= link_to("Replace Video of the week", edit_videos_path) %>
       </tr>
     <% @admins.each do |a| %>
       <tr>
