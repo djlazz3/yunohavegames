@@ -2,6 +2,26 @@
 
 <% @videos.each do |v| %>
     <center><embed src="<%= v.url %>" height="385px" width="640px"></embed></center>
+
+    <script type="text/javascript" src="http://davidwalsh.name/demo/ZeroClipboard.js"></script>
+    <textarea name="box-content" id="box-content" type="hidden">
+	<%= v.url %>
+</textarea>
+    <p><input type="button" id="copy" name="copy" value="Copy video url to Clipboard" /></p>
+    <script>
+
+        ZeroClipboard.setMoviePath('http://davidwalsh.name/demo/ZeroClipboard.swf');
+
+        var clip = new ZeroClipboard.Client();
+
+        clip.addEventListener('mousedown',function() {
+            clip.setText(document.getElementById('box-content').value);
+        });
+        clip.addEventListener('complete',function(client,text) {
+            alert("Succesfully Coppied Text");
+        });
+        clip.glue('copy');
+    </script>
     <% if current_user.try(:admin?)%>
         <%= link_to("Update Video", {:action => 'edit', :id => v.id}, :class => "action edit")%>
     <% end %>

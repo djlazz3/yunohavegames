@@ -1,6 +1,6 @@
 <h1>Picture of the Week</h1>
 <% @potws.each do |p| %>
-    <center><img src="<%= p.purl %>" height="80%" width="80%"></center>
+    <center><img src="<%= p.purl %>" class="image-round" height="80%" width="80%"></center>
     <% if current_user.try(:admin?)%>
         <%= link_to("Update Picture of the Week", {:action => 'edit', :id => p.id}, :class => "action edit")%>
     <% end %>

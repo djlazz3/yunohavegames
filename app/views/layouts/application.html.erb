@@ -16,25 +16,31 @@
 
 </head>
 <body>
-<%= link_to "Home", root_path %>
-<%= link_to "Games", games_index_path %>
-<%= link_to "Blog", blogs_index_path %>
-<%= link_to "Photo of the Week", potws_index_path %>
-<%= link_to "Videos", videos_index_path %>
+<%= link_to "Home", root_path, :class => "btn btn-primary" %>
+<%= link_to "Games", games_index_path, :class => "btn btn-primary"  %>
+<%= link_to "Blog", blogs_index_path, :class => "btn btn-primary"  %>
+<%= link_to "Photo of the Week", potws_index_path, :class => "btn btn-primary"  %>
+<%= link_to "Videos", videos_index_path, :class => "btn btn-primary"  %>
 <% if current_user.try(:admin?) %>
-    <%= link_to "Admin Pages", admins_index_path %>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+    <%= link_to "Admin Pages", admins_index_path, :class => "btn btn-primary"  %>
+    <%= link_to destroy_user_session_path, method: :delete, :class => "btn btn-primary" do %>
+        <span class="glyphicon glyphicon-off"></span> Log out
+    <% end %>
     <p> Currently logged in as <%= current_user.try(:email) %> </p>
 <% elsif current_user %>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-    <p> Currently logged in as <%= current_user.try(:email) %> </p>
+    <%= link_to destroy_user_session_path, method: :delete, :class => "btn btn-primary" do %>
+       <span class="glyphicon glyphicon-off"></span> Log out
+    <% end %>
+    <p> Currently logged in as <%= current_user.try(:email) %> </p></span>
 <% else %>
-    <%= link_to "Log in", new_user_session_path %>
-    <%= link_to "Sign up", new_user_registration_path %>
+    <%= link_to "Log in", new_user_session_path, :class => "btn btn-primary"  %>
+    <%= link_to "Sign up", new_user_registration_path, :class => "btn btn-primary"  %>
 <% end %>
 <br>
 
     <%= yield %>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>
