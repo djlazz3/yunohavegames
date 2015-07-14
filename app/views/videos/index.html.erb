@@ -1,5 +1,5 @@
 <h1>Video</h1>
-
+<% if current_user %>
 <% @videos.each do |v| %>
     <center><embed src="<%= v.url %>" height="385px" width="640px"></embed></center>
 
@@ -25,4 +25,7 @@
     <% if current_user.try(:admin?)%>
         <%= link_to("Update Video", {:action => 'edit', :id => v.id}, :class => "action edit")%>
     <% end %>
+<% end %>
+<% else %>
+<h1>You need to <%= link_to "login", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %> to view this page</h1>
 <% end %>

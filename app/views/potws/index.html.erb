@@ -1,7 +1,11 @@
 <h1>Picture of the Week</h1>
+<% if current_user %>
 <% @potws.each do |p| %>
     <center><img src="<%= p.purl %>" class="image-round" height="80%" width="80%"></center>
     <% if current_user.try(:admin?)%>
         <%= link_to("Update Picture of the Week", {:action => 'edit', :id => p.id}, :class => "action edit")%>
     <% end %>
+<% end %>
+<% else %>
+<h1>You need to <%= link_to "login", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %> to view this page</h1>
 <% end %>

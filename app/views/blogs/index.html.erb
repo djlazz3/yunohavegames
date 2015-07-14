@@ -1,5 +1,5 @@
 <h1>Blogs</h1>
-
+<% if current_user %>
 <% if current_user.try(:admin) %>
 
 <% @blogs.each do |b| %>
@@ -14,4 +14,7 @@
 <% else %>
 <h1>Sorry This is a Work in progress We'll try to have it up as soon as possible.</h1>
 <h3>While we do this you may look at all the other pages on the website's <%= link_to 'Home Page', root_path %>.</h3>
+<% end %>
+<% else %>
+<h1>You need to <%= link_to "login", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %> to view this page</h1>
 <% end %>
